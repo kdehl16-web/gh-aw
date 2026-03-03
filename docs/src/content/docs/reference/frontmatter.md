@@ -571,25 +571,6 @@ if: github.event_name == 'push'
 
 Configure how `actions/checkout` is invoked in the agent job. Override default checkout settings or check out multiple repositories for cross-repository workflows.
 
-```yaml wrap
-# Single repository with custom settings
-checkout:
-  fetch-depth: 0
-  token: ${{ secrets.MY_TOKEN }}
-```
-
-```yaml wrap
-# Multiple repositories, fetching all open PR refs for cross-repo work
-checkout:
-  - path: .
-    fetch-depth: 0
-  - repository: owner/other-repo
-    path: ./libs/other
-    ref: main
-    token: ${{ secrets.CROSS_REPO_PAT }}
-    fetch: ["refs/pulls/open/*"]
-```
-
 See [Cross-Repository Operations](/gh-aw/reference/cross-repository/) for complete documentation on checkout configuration options (including `fetch:`), merging behavior, and cross-repo examples.
 
 ## Custom Steps (`steps:`)
