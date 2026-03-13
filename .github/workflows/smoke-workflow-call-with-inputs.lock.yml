@@ -69,11 +69,14 @@ jobs:
       comment_repo: ""
       model: ${{ steps.generate_aw_info.outputs.model }}
       secret_verification_result: ${{ steps.validate-secret.outputs.verification_result }}
+      target_ref: ${{ steps.resolve-host-repo.outputs.target_ref }}
       target_repo: ${{ steps.resolve-host-repo.outputs.target_repo }}
     steps:
       - name: Checkout actions folder
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
+          repository: github/gh-aw
+          ref: dba6334
           sparse-checkout: |
             actions
           persist-credentials: false
@@ -135,6 +138,7 @@ jobs:
         with:
           persist-credentials: false
           repository: ${{ steps.resolve-host-repo.outputs.target_repo }}
+          ref: ${{ steps.resolve-host-repo.outputs.target_ref }}
           sparse-checkout: |
             .github
             .agents
@@ -313,6 +317,8 @@ jobs:
       - name: Checkout actions folder
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
+          repository: github/gh-aw
+          ref: dba6334
           sparse-checkout: |
             actions
           persist-credentials: false
@@ -1046,6 +1052,8 @@ jobs:
       - name: Checkout actions folder
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
+          repository: github/gh-aw
+          ref: dba6334
           sparse-checkout: |
             actions
           persist-credentials: false
@@ -1144,6 +1152,8 @@ jobs:
       - name: Checkout actions folder
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
+          repository: github/gh-aw
+          ref: dba6334
           sparse-checkout: |
             actions
           persist-credentials: false
@@ -1192,6 +1202,8 @@ jobs:
       - name: Checkout actions folder
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
+          repository: github/gh-aw
+          ref: dba6334
           sparse-checkout: |
             actions
           persist-credentials: false
